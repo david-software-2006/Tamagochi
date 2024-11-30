@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Alimentar al tamagotchi solo cuando se hace clic en el svg
   foodItemSvg.addEventListener("click", function () {
+
     if (hungerValue < 100) {
       hungerValue += 10; // Aumentar el hambre
       if (hungerValue > 100) hungerValue = 100; // Evitar que exceda el máximo
@@ -30,5 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // Si ya está al 100% de hambre
       alert("El tamagotchi ya está completamente alimentado.");
     }
+
   });
 });
