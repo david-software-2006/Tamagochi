@@ -14,8 +14,8 @@
   --inner-color: silver;
   --lcd-bgcolor: #b8b3af;
   --buttons-color: gold;
-  --width: 275px;
-  --height: 325px;
+  --width: 500px;
+  --height: 600px;
   --title-font-size: 34px;
   --break-shape: polygon(0 60%, 9% 38%, 10% 12%, 29% 15%, 47% 9%, 70% 14%, 84% 7%, 97% 20%, 91% 35%, 100% 58%, 92% 72%, 87% 92%, 68% 90%, 50% 100%, 40% 91%, 25% 94%, 9% 85%, 11% 77%);
 }
@@ -130,8 +130,8 @@
     & .screen {
       --border-radius: 10px;
 
-      width: 125px;
-      height: 120px;
+      width: 205px;
+      height: 210px;
       background: var(--lcd-bgcolor);
       position: absolute;
       border-radius: var(--border-radius);
@@ -273,8 +273,8 @@
     justify-content: space-between;
 
     & .button {
-      width: 22px;
-      height: 22px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       background: var(--buttons-color);
       box-shadow:
@@ -290,6 +290,7 @@
 
       &.middle {
         align-self: flex-end;
+       
       }
     }
   }
@@ -428,4 +429,7 @@
   & a:hover {
     color: #e6e82a;
   }
+}
+.item{
+    size-adjust: 10px;
 }
