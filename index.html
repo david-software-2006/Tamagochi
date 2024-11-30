@@ -40,11 +40,31 @@
   </div>
 </div>
 
-<div class="created">
-  <span>Created by</span>
-  <a href="https://manz.dev/"><h2>Manz.dev</h2></a>
-  <p>on <a href="https://twitch.tv/ManzDev">Twitch</a> / <a href="https://youtu.be/39qlI5eeajQ">Youtube</a></p>
+
+  <div class="hunger-indicator">
+    <label for="hunger">Hambre:</label>
+    <progress class="hunger" id="hunger" value="50" max="100"></progress>
+    <span id="hunger-percentage">0%</span>
+  </div>
+  
+  <div class="sleep-indicator">
+    <label for="sleep">Sueño:</label>
+    <progress class="sleep" id="sleep" value="100" max="100"></progress>
+    <span id="sleep-percentage">0%</span>
 </div>
+
+
+  <div class="created">
+    <span>Created by</span>
+    <a href="https://manz.dev/">
+      <h2>Manz.dev</h2>
+    </a>
+    <p>on <a href="https://twitch.tv/ManzDev">Twitch</a> / <a href="https://youtu.be/39qlI5eeajQ">Youtube</a></p>
+  </div>
 </body>
 <script src="energía.js"></script>
+<script src="comer.js"></script>
+<script src="dormir.js"></script>
+
+
 </html>
