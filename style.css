@@ -14,8 +14,8 @@
   --inner-color: silver;
   --lcd-bgcolor: #b8b3af;
   --buttons-color: gold;
-  --width: 275px;
-  --height: 325px;
+  --width: 500px;
+  --height: 600px;
   --title-font-size: 34px;
   --break-shape: polygon(0 60%, 9% 38%, 10% 12%, 29% 15%, 47% 9%, 70% 14%, 84% 7%, 97% 20%, 91% 35%, 100% 58%, 92% 72%, 87% 92%, 68% 90%, 50% 100%, 40% 91%, 25% 94%, 9% 85%, 11% 77%);
 }
@@ -130,8 +130,8 @@
     & .screen {
       --border-radius: 10px;
 
-      width: 125px;
-      height: 120px;
+      width: 205px;
+      height: 210px;
       background: var(--lcd-bgcolor);
       position: absolute;
       border-radius: var(--border-radius);
@@ -273,8 +273,8 @@
     justify-content: space-between;
 
     & .button {
-      width: 22px;
-      height: 22px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       background: var(--buttons-color);
       box-shadow:
@@ -290,6 +290,7 @@
 
       &.middle {
         align-self: flex-end;
+       
       }
     }
   }
@@ -430,27 +431,42 @@
   }
 }
 
+path {
+  width: 14px;
+  height: 12px;
+}
+
 
 .hunger-indicator {
   display: flex;
   align-items: center;
   gap: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
   margin-top: 20px;
 }
 
-#hunger {
-  width: 150px;
+progress.hunger {
+  width: 200px;
   height: 20px;
-  border-radius: 5px;
   appearance: none;
 }
 
-#hunger::-webkit-progress-bar {
+progress.hunger::-webkit-progress-bar {
   background-color: #f3f3f3;
   border-radius: 5px;
 }
 
-#hunger::-webkit-progress-value {
-  background-color: #4caf50;
+progress.hunger::-webkit-progress-value {
+  background-color: #4caf50; /* Color verde */
   border-radius: 5px;
+}
+
+.item{
+    size-adjust: 10px;
+    width: 25px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

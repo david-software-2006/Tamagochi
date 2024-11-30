@@ -1,44 +1,29 @@
-//  // Inicialización del estado del Tamagotchi
-//  let hungerLevel = 5;
-
-//  // Obtener referencia al botón (SVG)
-//  const feedButton = document.getElementById('food');
-//  const tamagotchiStatus = document.getElementById('tamagotchi');
-
-//  // Función para alimentar al Tamagotchi
-//  function feedTamagotchi() {
-//    if (hungerLevel > 0) {
-//      hungerLevel--;
-//      tamagotchiStatus.textContent = `Nivel de hambre: ${hungerLevel}`;
-//      alert("¡Has alimentado a tu Tamagotchi!");
-//    } else {
-//      alert("¡Tu Tamagotchi ya está satisfecho!");
-//    }
-//  }
-
 document.addEventListener("DOMContentLoaded", function () {
-    const hungerFill = document.querySelector(".hunger-fill");
-    let hungerLevel = 100; // Nivel inicial de hambre (0% = vacío, 100% = lleno)
-  
-    function decreaseHunger() {
-      hungerLevel -= 5; // Reduce el hambre en 5% cada vez
-      if (hungerLevel < 0) hungerLevel = 0; // Evita valores negativos
-      hungerFill.style.width = hungerLevel + "%"; // Actualiza el ancho de la barra
-  
-      if (hungerLevel === 0) {
-        alert("El tamagotchi tiene mucha hambre. ¡Aliméntalo!");
-        clearInterval(hungerTimer); // Detén el temporizador si llega a 0
-      }
+  const hungerBar = document.getElementById("hunger");
+  const hungerPercentage = document.getElementById("hunger-percentage");
+  const foodItemSvg = document.querySelector(".food.item svg"); // Seleccionamos el svg dentro del div
+
+  let hungerValue = parseInt(hungerBar.value); // Valor inicial de hambre
+
+  function decreaseHunger() {
+    if (hungerValue > 0) {
+      hungerValue--; // Reducir el hambre
+      hungerBar.value = hungerValue; // Actualizar el valor del <progress>
+      hungerPercentage.textContent = hungerValue + "%"; // Actualizar el porcentaje mostrado
+    } else {
+      clearInterval(hungerInterval); // Detener el temporizador si llega a 0
+      alert("El tamagotchi tiene mucha hambre. ¡Aliméntalo!");
     }
-  
-    // Temporizador para disminuir hambre cada 2 segundos
-    const hungerTimer = setInterval(decreaseHunger, 2000);
-  
-    // Simula alimentar al tamagotchi al hacer clic en el botón de comida
-    document.querySelector("#food").addEventListener("click", function () {
-      hungerLevel += 20; // Incrementa el hambre en 20%
-      if (hungerLevel > 100) hungerLevel = 100; // Evita exceder el 100%
-      hungerFill.style.width = hungerLevel + "%"; // Actualiza el ancho de la barra
-    });
+  }
+
+  // Disminuir hambre automáticamente cada 1 segundo
+  const hungerInterval = setInterval(decreaseHunger, 1000);
+
+  // Alimentar al tamagotchi solo cuando se hace clic en el svg
+  foodItemSvg.addEventListener("click", function () {
+    hungerValue += 10; // Aumentar el hambre
+    if (hungerValue > 100) hungerValue = 100; // Evitar que exceda el máximo
+    hungerBar.value = hungerValue;
+    hungerPercentage.textContent = hungerValue + "%";
   });
-  
+});
